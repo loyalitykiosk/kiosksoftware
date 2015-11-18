@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER_RIGHT" prefHeight="506.0" prefWidth="900.0" styleClass="backpanel" stylesheets="@../css/existing_customer.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loyalitypointmanagement.ExistingCustomer.ExistingcustomerController">
+   <children>
+      <VBox fx:id="rect_panel" alignment="CENTER_RIGHT" maxHeight="550.0" maxWidth="750.0" minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="650.0" styleClass="panel" stylesheets="@../css/existing_customer.css" VBox.vgrow="NEVER">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="80.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+               <children>
+                  <VBox prefHeight="440.0" prefWidth="744.0">
+                     <children>
+                        <Pane fx:id="pane_existing_cust" prefHeight="398.0" prefWidth="713.0" styleClass="tab_back" stylesheets="@../css/existing_customer.css">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                           </VBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <VBox prefHeight="392.0" prefWidth="220.0">
+                                 <children>
+                                    <Label styleClass="label_existingcust" stylesheets="@../css/existing_customer.css" text="Customer Name:" textFill="#31cbfd">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="40.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                    </Label>
+                                    <Label styleClass="label_existingcust" stylesheets="@../css/existing_customer.css" text="Address:" textFill="#31cbfd">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="15.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font></Label>
+                                    <Label styleClass="label_existingcust" stylesheets="@../css/existing_customer.css" text="Customer Phone:" textFill="#31cbfd">
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="45.0" />
+                                       </VBox.margin></Label>
+                                    <Label styleClass="label_existingcust" stylesheets="@../css/existing_customer.css" text="Available Points:" textFill="#31cbfd">
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="20.0" />
+                                       </VBox.margin></Label>
+                                    <Button fx:id="btn_submit" mnemonicParsing="false" onAction="#return_Dashboard" prefHeight="50.0" prefWidth="147.0" styleClass="btn_back" stylesheets="@../css/existing_customer.css" text="OK" textFill="#ffffff">
+                                       <VBox.margin>
+                                          <Insets left="40.0" top="30.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="212.0" layoutY="1.0" prefHeight="392.0" prefWidth="481.0">
+                                 <children>
+                                    <Label fx:id="cust_name" textFill="#ffffff">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="40.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="cust_addrs" textFill="#ffffff">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="15.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="cust_phone" textFill="#ffffff">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="50.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="cust_point" textFill="#ffffff">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="16.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox>
+                                       <children>
+                                          <ImageView fitHeight="165.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/chips1.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="275.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children></VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

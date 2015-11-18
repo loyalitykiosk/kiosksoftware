@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER_RIGHT" prefHeight="506.0" prefWidth="900.0" styleClass="backpanel" stylesheets="@../css/existing_customer.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loyalitypointmanagement.ExistingCustomer.ExistinitialController">
+   <children>
+      <VBox fx:id="rect_panel" alignment="CENTER_RIGHT" maxHeight="550.0" maxWidth="750.0" minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="650.0" styleClass="panel" stylesheets="@../css/existing_customer.css" VBox.vgrow="NEVER">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="80.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+               <children>
+                  <VBox prefHeight="440.0" prefWidth="744.0">
+                     <children>
+                        <Pane fx:id="pane_existing_cust" prefHeight="398.0" prefWidth="606.0" styleClass="tab_back" stylesheets="@../css/existing_customer.css">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="8.0" prefHeight="135.0" prefWidth="666.0" styleClass="tab_text_back" stylesheets="@../css/existing_customer.css" text="PLEASE ENTER YOUR MEMBER ID /&#10; PHONE NO/ UPC CODE" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/casinocard.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="474.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/chips1.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField fx:id="txt_memberid" layoutX="190.0" layoutY="162.0" prefHeight="48.0" prefWidth="327.0" promptText="Member Id/Phone/Upc Code" stylesheets="@../css/existing_customer.css" />
+                              <Button fx:id="btn_submit" layoutX="278.0" layoutY="230.0" mnemonicParsing="false" onAction="#viewMemberDetails" onMouseClicked="#ReturnDashboard" prefHeight="50.0" prefWidth="147.0" styleClass="btn_back" text="Submit" textFill="#ffffff">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="280.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#Back_Dashboadrd" prefHeight="50.0" prefWidth="147.0" styleClass="btn_back" stylesheets="@../css/newcustomercss.css" text="Back" textFill="#ffffff">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
