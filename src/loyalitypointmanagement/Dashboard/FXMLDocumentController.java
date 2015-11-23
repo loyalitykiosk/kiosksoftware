@@ -141,7 +141,7 @@ public class FXMLDocumentController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/ExistingCustomer/existinitial.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/lostmycard/LostCard.fxml"));
             //Stage stage = new Stage();
-            stage.setTitle("Existing Customer");
+            stage.setTitle("Check Points");
             stage.setMaximized(true);
             stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
             stage.show();
@@ -161,7 +161,6 @@ public class FXMLDocumentController implements Initializable {
             Stage stage = new Stage();
             //Stage stage = (Stage) root.getScene().getWindow();
             stage.setTitle("Checkin/Checkout");
-
             stage.setMaximized(true);
             stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
             stage.show();
@@ -174,7 +173,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public void newCustomer(MouseEvent event) {
         try {
-            //new LoyalityPointManagement().showDialog();
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/NewCustomer/newCustomerFXML.fxml"));
             Stage stage = new Stage();

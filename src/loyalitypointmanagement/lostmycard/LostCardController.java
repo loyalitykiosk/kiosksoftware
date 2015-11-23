@@ -5,6 +5,10 @@
  */
 package loyalitypointmanagement.lostmycard;
 
+import com.twilio.sdk.TwilioRestClient;
+import com.twilio.sdk.TwilioRestException;
+import com.twilio.sdk.resource.factory.MessageFactory;
+import com.twilio.sdk.resource.instance.Message;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,6 +41,10 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import loyalitypointmanagement.ExistingCustomer.ExistingcustomerController;
+import static loyalitypointmanagement.NewCustomer.NewCustomerController.ACCOUNT_SID;
+import static loyalitypointmanagement.NewCustomer.NewCustomerController.AUTH_TOKEN;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
 /**
  * FXML Controller class
@@ -57,6 +65,9 @@ public class LostCardController implements Initializable {
     String name, phone, address, point;
     HashMap<String, String> mem_details;
     public String membr;
+
+    public static final String ACCOUNT_SID = "AC6f0edff72532f2d6969e31dd52ca74d2";
+    public static final String AUTH_TOKEN = "57541a7cc331fe7a4b9cd5714db98929";
 
     /**
      * Initializes the controller class.
@@ -92,7 +103,7 @@ public class LostCardController implements Initializable {
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Existing Customer");
+            stage.setTitle("Lost My Card");
             stage.setMaximized(true);
             stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
             stage.show();
@@ -103,11 +114,11 @@ public class LostCardController implements Initializable {
     }
 
     @FXML
-    private void viewMemberDetails(ActionEvent event) throws JSONException {
+    private void viewMemberDetails(ActionEvent event) throws JSONException, TwilioRestException, IOException {
         String result = "";
         HashMap<String, String> params = new HashMap<>();
         params.put("mem_id", txt_memberid.getText().toString());
-         System.out.println(txt_memberid.getText().toString());
+        System.out.println(txt_memberid.getText().toString());
         result = new AppHelper().performPostCall(MEMBER_DETAILS, params);
         JSONObject jsonObject = new JSONObject(result);
         System.out.println("" + jsonObject);
@@ -124,33 +135,44 @@ public class LostCardController implements Initializable {
 //            mem_details.put("point", point);
 //            mem_details.put("phone", phone);
             membr = name + "~" + address + "~" + point + "~" + phone;
-            
-             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Alert");
-        alert.setHeaderText("");
-        alert.getDialogPane().setPrefSize(600.0, 300.0);
-        String s = "Welcome Mr/Ms "+name+  ". We appreciate your business. Please Contact to our Admin";
-        alert.setContentText(s);
-        DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add(
-                getClass().getResource("newCustomerCSS.css").toExternalForm());
-        dialogPane.getStyleClass().add("myDialog");
-        ButtonBar buttonBar = (ButtonBar) alert.getDialogPane().lookup(".button-bar");
-        buttonBar.setStyle("-fx-font-size: 24px;"
-                + "-fx-background-color: indianred;");
-        buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
-        Optional<ButtonType> result1 = alert.showAndWait();
-        if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
-//                    Parent root;
-//                    root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
-//                    Stage stage = new Stage();
-//                    stage.setTitle("Dash Board");
-//                    stage.setMaximized(true);
-//                    stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
-//                    stage.show();
-//                    //((Node) (event.getSource())).getScene().getWindow().hide();
-//                    txt_memberid.getScene().getWindow().hide();
-        }
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Alert");
+            alert.setHeaderText("");
+            alert.getDialogPane().setPrefSize(600.0, 300.0);
+            String s = "Welcome Mr/Ms " + name + ". We appreciate your business. Please Contact to our Admin";
+            alert.setContentText(s);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("newCustomerCSS.css").toExternalForm());
+            dialogPane.getStyleClass().add("myDialog");
+            ButtonBar buttonBar = (ButtonBar) alert.getDialogPane().lookup(".button-bar");
+            buttonBar.setStyle("-fx-font-size: 24px;"
+                    + "-fx-background-color: indianred;");
+            buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
+            Optional<ButtonType> result1 = alert.showAndWait();
+
+            TwilioRestClient client = new TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN);
+            // Build the parameters 
+            List<NameValuePair> params_sms = new ArrayList<NameValuePair>();
+            params_sms.add(new BasicNameValuePair("From", "+12028313299"));
+            params_sms.add(new BasicNameValuePair("To", "+91" + phone)); // Replace with a valid phone number
+            params_sms.add(new BasicNameValuePair("Body", s));
+            MessageFactory messageFactory = client.getAccount().getMessageFactory();
+            Message message = messageFactory.create(params_sms);
+            System.out.println(message.getSid());
+
+            if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
+                Parent root;
+                 root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
+                 Stage stage = new Stage();
+                 stage.setTitle("Dash Board");
+                 stage.setMaximized(true);
+                 stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
+                 stage.show();
+                 ((Node) (event.getSource())).getScene().getWindow().hide();
+                 txt_memberid.getScene().getWindow().hide();
+            }
 
 //            try {
 //                //new LoyalityPointManagement().showDialog();
@@ -172,25 +194,25 @@ public class LostCardController implements Initializable {
 //                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
 //            }
         } else {
-           // try {
-                //new LoyalityPointManagement().showDialog();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("New Customer Confirmation");
-                alert.setHeaderText("");
-                alert.getDialogPane().setPrefSize(600.0, 300.0);
-                String s = "Sorry! No Customer found.";
-                alert.setContentText(s);
+            // try {
+            //new LoyalityPointManagement().showDialog();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("New Customer Confirmation");
+            alert.setHeaderText("");
+            alert.getDialogPane().setPrefSize(600.0, 300.0);
+            String s = "Sorry! No Customer found.";
+            alert.setContentText(s);
 
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(
-                        getClass().getResource("newCustomerCSS.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                ButtonBar buttonBar = (ButtonBar) alert.getDialogPane().lookup(".button-bar");
-                buttonBar.setStyle("-fx-font-size: 24px;"
-                        + "-fx-background-color: indianred;");
-                buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("newCustomerCSS.css").toExternalForm());
+            dialogPane.getStyleClass().add("myDialog");
+            ButtonBar buttonBar = (ButtonBar) alert.getDialogPane().lookup(".button-bar");
+            buttonBar.setStyle("-fx-font-size: 24px;"
+                    + "-fx-background-color: indianred;");
+            buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
 
-                Optional<ButtonType> result1 = alert.showAndWait();
+            Optional<ButtonType> result1 = alert.showAndWait();
 //                if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
 //                    Parent root;
 //                    root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
@@ -203,7 +225,7 @@ public class LostCardController implements Initializable {
 //                    txt_memberid.getScene().getWindow().hide();
 //                }
 
-          //  }
+            //  }
         }
     }
 

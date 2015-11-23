@@ -5,6 +5,10 @@
  */
 package loyalitypointmanagement.NewCustomer;
 
+import com.twilio.sdk.TwilioRestClient;
+import com.twilio.sdk.TwilioRestException;
+import com.twilio.sdk.resource.factory.MessageFactory;
+import com.twilio.sdk.resource.instance.Message;
 import dataprovider.IPAddress;
 import loyalitypointmanagement.applicationhelper.AppHelper;
 import java.io.BufferedReader;
@@ -49,6 +53,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import jdk.nashorn.internal.runtime.options.Option;
 import loyalitypointmanagement.lostmycard.LostCardController;
+import static loyaltypointmanagement.sms.api.TestSMSApi.ACCOUNT_SID;
+import static loyaltypointmanagement.sms.api.TestSMSApi.AUTH_TOKEN;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
@@ -80,6 +86,8 @@ public class NewCustomerController implements Initializable {
     private static final String REG_URL = "http://senindia.co.in/kioskadmin/APIv1.0/mem_reg_api_action.jsp    ";
 
     JSONObject jobj;
+    public static final String ACCOUNT_SID = "AC6f0edff72532f2d6969e31dd52ca74d2";
+    public static final String AUTH_TOKEN = "57541a7cc331fe7a4b9cd5714db98929";
 
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -93,7 +101,7 @@ public class NewCustomerController implements Initializable {
     }
 
     @FXML
-    private void submitRegistration(ActionEvent event) throws JSONException {
+    private void submitRegistration(ActionEvent event) throws JSONException, TwilioRestException {
         String result = "";
         ipAddress = new IPAddress().getIPAddress();
         HashMap<String, String> params = new HashMap<>();
@@ -127,6 +135,17 @@ public class NewCustomerController implements Initializable {
                 buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
 
                 Optional<ButtonType> result1 = alert.showAndWait();
+                TwilioRestClient client = new TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN);
+
+                // Build the parameters 
+                List<NameValuePair> params_sms = new ArrayList<NameValuePair>();
+                params_sms.add(new BasicNameValuePair("From", "+12028313299"));
+                params_sms.add(new BasicNameValuePair("To", "+1"+txt_phone.getText().toString())); // Replace with a valid phone number
+                params_sms.add(new BasicNameValuePair("Body", "Congratulations you have been registered.!\n You have got 200 points for new registration."));
+                MessageFactory messageFactory = client.getAccount().getMessageFactory();
+                Message message = messageFactory.create(params_sms);
+                
+                System.out.println(message.getSid());
                 if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
                     Parent root;
                     root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));

@@ -176,7 +176,7 @@ public class ExistinitialController implements Initializable {
            // try {
                 //new LoyalityPointManagement().showDialog();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("New Customer Confirmation");
+                alert.setTitle("Existing Customer");
                 alert.setHeaderText("");
                 alert.getDialogPane().setPrefSize(600.0, 300.0);
                 String s = "Sorry! No Customer found.";
