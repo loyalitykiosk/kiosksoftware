@@ -94,7 +94,8 @@ public class CheckInOutController implements Initializable {
                 + "-fx-background-color: indianred;");
         buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
 
-        alert.getButtonTypes().setAll(checkinButton, checkoutButton, cancelButton);
+        alert.getButtonTypes().setAll(checkinButton,  cancelButton);
+        
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == checkinButton) {
@@ -102,23 +103,21 @@ public class CheckInOutController implements Initializable {
                 try {
                     HashMap<String, String> params = new HashMap<String, String>();
                     params.put("mem_id", txt_memberid.getText().toString());
-                    
+
                     String response = new AppHelper().performPostCall(CHKSTATUS, params);
                     JSONObject jobject = new JSONObject(response);
                     System.out.println(jobject.getString("msg"));
                     if (jobject.getString("msg").equals("0")) {
-                      
                         HashMap<String, String> paramss = new HashMap<String, String>();
-                    paramss.put("mem_id", txt_memberid.getText().toString());
-                    String responses = new AppHelper().performPostCall(CUSTOMER_DETAILS, paramss);
-                    JSONObject jobjects = new JSONObject(responses);
-                    if (jobjects.getString("msg").equals("1")) {
-                        name = jobjects.getString("fullname");
-                        address = jobjects.getString("present_address");
-                        phone = jobjects.getString("phone_no");
-                        point = jobjects.getString("points");
-                    }
-                        
+                        paramss.put("mem_id", txt_memberid.getText().toString());
+                        String responses = new AppHelper().performPostCall(CUSTOMER_DETAILS, paramss);
+                        JSONObject jobjects = new JSONObject(responses);
+                        if (jobjects.getString("msg").equals("1")) {
+                            name = jobjects.getString("fullname");
+                            address = jobjects.getString("present_address");
+                            phone = jobjects.getString("phone_no");
+                            point = jobjects.getString("points");
+                        }
                         CustomerDetailsGetSet cust_details = new CustomerDetailsGetSet(name, address, phone, point);
                         String ip = new IPAddress().getIPAddress();
                         HashMap<String, String> paramc = new HashMap<String, String>();
@@ -169,25 +168,23 @@ public class CheckInOutController implements Initializable {
         } else if (result.get() == checkoutButton) {
             if (!txt_memberid.getText().toString().equals("")) {
                 try {
-                    
                     HashMap<String, String> params = new HashMap<String, String>();
                     params.put("mem_id", txt_memberid.getText().toString());
                     String response = new AppHelper().performPostCall(CHKSTATUS, params);
                     JSONObject jobject = new JSONObject(response);
                     System.out.println(jobject.getString("msg"));
                     if (jobject.getString("msg").equals("1")) {
-                      
+
                         HashMap<String, String> paramss = new HashMap<String, String>();
-                    paramss.put("mem_id", txt_memberid.getText().toString());
-                    String responses = new AppHelper().performPostCall(CUSTOMER_DETAILS, paramss);
-                    JSONObject jobjects = new JSONObject(responses);
-                    if (jobjects.getString("msg").equals("1")) {
-                        name = jobjects.getString("fullname");
-                        address = jobjects.getString("present_address");
-                        phone = jobjects.getString("phone_no");
-                        point = jobjects.getString("points");
-                    }
-                        
+                        paramss.put("mem_id", txt_memberid.getText().toString());
+                        String responses = new AppHelper().performPostCall(CUSTOMER_DETAILS, paramss);
+                        JSONObject jobjects = new JSONObject(responses);
+                        if (jobjects.getString("msg").equals("1")) {
+                            name = jobjects.getString("fullname");
+                            address = jobjects.getString("present_address");
+                            phone = jobjects.getString("phone_no");
+                            point = jobjects.getString("points");
+                        }
                         CustomerDetailsGetSet cust_details = new CustomerDetailsGetSet(name, address, phone, point);
                         String ip = new IPAddress().getIPAddress();
                         HashMap<String, String> paramc = new HashMap<String, String>();
