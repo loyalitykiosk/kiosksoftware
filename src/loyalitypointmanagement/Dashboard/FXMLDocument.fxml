@@ -59,7 +59,7 @@
                                     <Image url="@icon3.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="118.0" prefHeight="57.0" prefWidth="300.0" styleClass="tab_text_back" stylesheets="@dashboardcss.css" text="Check In / Out" textAlignment="CENTER" textFill="WHITE">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="118.0" prefHeight="57.0" prefWidth="300.0" styleClass="tab_text_back" stylesheets="@dashboardcss.css" text="Check In" textAlignment="CENTER" textFill="WHITE">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
