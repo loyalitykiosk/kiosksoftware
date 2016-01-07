@@ -33,6 +33,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import loyalitypointmanagement.Dashboard.FXMLDocumentController;
 import loyalitypointmanagement.ExistingCustomer.ExistingcustomerController;
 import loyalitypointmanagement.applicationhelper.AppHelper;
@@ -94,8 +95,8 @@ public class CheckInOutController implements Initializable {
                 + "-fx-background-color: indianred;");
         buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
 
-        alert.getButtonTypes().setAll(checkinButton,  cancelButton);
-        
+        alert.getButtonTypes().setAll(checkinButton, cancelButton);
+
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == checkinButton) {
@@ -133,6 +134,8 @@ public class CheckInOutController implements Initializable {
                         Parent root = loader.getRoot();
                         Stage stage = new Stage();
                         stage.setMaximized(true);
+                        stage.setFullScreen(true);
+                        stage.initStyle(StageStyle.UNDECORATED);
                         stage.setTitle("Existing Customer");
                         stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
                         ExistingcustomerController existController = loader.getController();
@@ -199,6 +202,9 @@ public class CheckInOutController implements Initializable {
                         Parent root = loader.getRoot();
                         Stage stage = new Stage();
                         stage.setMaximized(true);
+                        stage.setFullScreen(true);
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        //stage.setFullScreen(false);
                         stage.setTitle("Existing Customer");
                         stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
                         ExistingcustomerController existController = loader.getController();
@@ -243,6 +249,9 @@ public class CheckInOutController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Dash Board");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
+            //stage.setFullScreen(false);
             stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();

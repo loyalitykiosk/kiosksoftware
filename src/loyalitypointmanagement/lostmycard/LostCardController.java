@@ -40,6 +40,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
+import javafx.stage.StageStyle;
 import loyalitypointmanagement.ExistingCustomer.ExistingcustomerController;
 import static loyalitypointmanagement.NewCustomer.NewCustomerController.ACCOUNT_SID;
 import static loyalitypointmanagement.NewCustomer.NewCustomerController.AUTH_TOKEN;
@@ -105,6 +106,9 @@ public class LostCardController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Lost My Card");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
+            //stage.setFullScreen(false);
             stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -164,14 +168,17 @@ public class LostCardController implements Initializable {
 
             if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
                 Parent root;
-                 root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
-                 Stage stage = new Stage();
-                 stage.setTitle("Dash Board");
-                 stage.setMaximized(true);
-                 stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
-                 stage.show();
-                 ((Node) (event.getSource())).getScene().getWindow().hide();
-                 txt_memberid.getScene().getWindow().hide();
+                root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Dash Board");
+                stage.setMaximized(true);
+                stage.setFullScreen(true);
+                stage.initStyle(StageStyle.UNDECORATED);
+                //stage.setFullScreen(false);
+                stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
+                stage.show();
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+                txt_memberid.getScene().getWindow().hide();
             }
 
 //            try {
@@ -237,6 +244,9 @@ public class LostCardController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Dash Board");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
+            //stage.setFullScreen(false);
             stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();

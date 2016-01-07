@@ -37,6 +37,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import loyalitypointmanagement.applicationhelper.AppHelper;
 import loyalitypointmanagement.lostmycard.LostCardController;
@@ -61,6 +62,7 @@ public class FXMLDocumentController implements Initializable {
     // private final static String ALLOCATE_IP_WITH_KIOSK_URL = "http://senindia.co.in/kioskadmin/APIv1.0/allocate_ip_with_kiosk_action.jsp";
     private String response = "";
     private String response_promotion = "";
+    int count = 0;
 
     //private String responseallc = "";
     @FXML
@@ -117,7 +119,7 @@ public class FXMLDocumentController implements Initializable {
 
                 GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
                 int width = 1;
-                        //gd.getDisplayMode().getWidth();
+                //gd.getDisplayMode().getWidth();
 
                 transition.setFromX(width);
                 transition.setToX(-width);
@@ -137,12 +139,15 @@ public class FXMLDocumentController implements Initializable {
         try {
             //new LoyalityPointManagement().showDialog();
             Parent root;
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/ExistingCustomer/existinitial.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/lostmycard/LostCard.fxml"));
-            //Stage stage = new Stage();
+            Stage stage = new Stage();
             stage.setTitle("Check Points");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
+            //stage.setResizable(false);
             stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -154,7 +159,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public void checkInOut(MouseEvent event) {
         try {
-            //new LoyalityPointManagement().showDialog();
             Parent root;
             //root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/ExistingCustomer/SwipeCard.fxml"));
             root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/checkinout/CheckInOut.fxml"));
@@ -162,6 +166,9 @@ public class FXMLDocumentController implements Initializable {
             //Stage stage = (Stage) root.getScene().getWindow();
             stage.setTitle("Checkin/Checkout");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
+            //stage.setResizable(false);
             stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -172,18 +179,40 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     public void newCustomer(MouseEvent event) {
-        try {
-            Parent root;
-            root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/NewCustomer/newCustomerFXML.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("New Customer Registration");
-            stage.setMaximized(true);
-            stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
-            stage.show();
-            ((Node) (event.getSource())).getScene().getWindow().hide();
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        count++;
+        if (count == 1) {
+            try {
+                Parent root;
+                root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/NewCustomer/newCustomerFXML.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("New Customer Registration");
+                stage.setMaximized(true);
+                stage.setFullScreen(true);
+                stage.initStyle(StageStyle.UNDECORATED);
+                //stage.setResizable(false);
+                stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
+                stage.show();
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        /*try {
+         Parent root;
+         root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/NewCustomer/newCustomerFXML.fxml"));
+         Stage stage = new Stage();
+         stage.setTitle("New Customer Registration");
+         stage.setMaximized(true);
+         stage.setFullScreen(true);
+         stage.initStyle(StageStyle.UNDECORATED);
+         //stage.setResizable(false);
+         stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
+         stage.show();
+         ((Node) (event.getSource())).getScene().getWindow().hide();
+         } catch (IOException ex) {
+         Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+         }*/
+        System.out.println("New Customer Clicked");
     }
 
     @FXML
@@ -196,6 +225,9 @@ public class FXMLDocumentController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Lost Card");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
+            //stage.setResizable(false);
             stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();

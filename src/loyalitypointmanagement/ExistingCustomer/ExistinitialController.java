@@ -33,10 +33,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import dataprovider.CustomerDetailsGetSet;
 import java.util.Optional;
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
+import javafx.stage.StageStyle;
 import loyalitypointmanagement.ExistingCustomer.ExistingcustomerController;
 
 /**
@@ -95,6 +98,8 @@ public class ExistinitialController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Existing Customer");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -125,7 +130,7 @@ public class ExistinitialController implements Initializable {
 //            mem_details.put("point", point);
 //            mem_details.put("phone", phone);
             membr = name + "~" + address + "~" + point + "~" + phone;
-            
+
             //Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //        alert.setTitle("Alert");
 //        alert.setHeaderText("");
@@ -140,8 +145,8 @@ public class ExistinitialController implements Initializable {
 //        buttonBar.setStyle("-fx-font-size: 24px;"
 //                + "-fx-background-color: indianred;");
 //        buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
-        //Optional<ButtonType> result1 = alert.showAndWait();
-       // if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
+            //Optional<ButtonType> result1 = alert.showAndWait();
+            // if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
 //                    Parent root;
 //                    root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
 //                    Stage stage = new Stage();
@@ -151,8 +156,7 @@ public class ExistinitialController implements Initializable {
 //                    stage.show();
 //                    //((Node) (event.getSource())).getScene().getWindow().hide();
 //                    txt_memberid.getScene().getWindow().hide();
-       // }
-
+            // }
             try {
                 //new LoyalityPointManagement().showDialog();
                 CustomerDetailsGetSet cust_details = new CustomerDetailsGetSet(name, address, phone, point);
@@ -164,34 +168,37 @@ public class ExistinitialController implements Initializable {
                 //Stage stage = (Stage) root.getScene().getWindow();
                 stage.setTitle("Existing Customer");
                 stage.setMaximized(true);
+                stage.setFullScreen(true);
+                stage.initStyle(StageStyle.UNDECORATED);
                 stage.setScene(new Scene(root, pane_existing_cust.getScene().getWidth(), pane_existing_cust.getScene().getHeight()));
                 ExistingcustomerController existController = loader.getController();
                 existController.setCust_info(cust_details);
                 stage.show();
                 ((Node) (event.getSource())).getScene().getWindow().hide();
+
             } catch (IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-           // try {
-                //new LoyalityPointManagement().showDialog();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Existing Customer");
-                alert.setHeaderText("");
-                alert.getDialogPane().setPrefSize(600.0, 300.0);
-                String s = "Sorry! No Customer found.";
-                alert.setContentText(s);
+            // try {
+            //new LoyalityPointManagement().showDialog();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Existing Customer");
+            alert.setHeaderText("");
+            alert.getDialogPane().setPrefSize(600.0, 300.0);
+            String s = "Sorry! No Customer found.";
+            alert.setContentText(s);
 
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(
-                        getClass().getResource("newCustomerCSS.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                ButtonBar buttonBar = (ButtonBar) alert.getDialogPane().lookup(".button-bar");
-                buttonBar.setStyle("-fx-font-size: 24px;"
-                        + "-fx-background-color: indianred;");
-                buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("newCustomerCSS.css").toExternalForm());
+            dialogPane.getStyleClass().add("myDialog");
+            ButtonBar buttonBar = (ButtonBar) alert.getDialogPane().lookup(".button-bar");
+            buttonBar.setStyle("-fx-font-size: 24px;"
+                    + "-fx-background-color: indianred;");
+            buttonBar.getButtons().forEach(b -> b.setStyle("-fx-font-family: \"Andalus\";"));
 
-                Optional<ButtonType> result1 = alert.showAndWait();
+            Optional<ButtonType> result1 = alert.showAndWait();
 //                if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
 //                    Parent root;
 //                    root = FXMLLoader.load(getClass().getResource("/loyalitypointmanagement/Dashboard/FXMLDocument.fxml"));
@@ -204,7 +211,7 @@ public class ExistinitialController implements Initializable {
 //                    txt_memberid.getScene().getWindow().hide();
 //                }
 
-          //  }
+            //  }
         }
     }
 
@@ -216,6 +223,8 @@ public class ExistinitialController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Dash Board");
             stage.setMaximized(true);
+            stage.setFullScreen(true);
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();

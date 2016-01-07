@@ -51,6 +51,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jdk.nashorn.internal.runtime.options.Option;
 import loyalitypointmanagement.lostmycard.LostCardController;
 import static loyaltypointmanagement.sms.api.TestSMSApi.ACCOUNT_SID;
@@ -140,11 +141,11 @@ public class NewCustomerController implements Initializable {
                 // Build the parameters 
                 List<NameValuePair> params_sms = new ArrayList<NameValuePair>();
                 params_sms.add(new BasicNameValuePair("From", "+12028313299"));
-                params_sms.add(new BasicNameValuePair("To", "+1"+txt_phone.getText().toString())); // Replace with a valid phone number
+                params_sms.add(new BasicNameValuePair("To", "+1" + txt_phone.getText().toString())); // Replace with a valid phone number
                 params_sms.add(new BasicNameValuePair("Body", "Congratulations you have been registered.!\n You have got 200 points for new registration."));
                 MessageFactory messageFactory = client.getAccount().getMessageFactory();
                 Message message = messageFactory.create(params_sms);
-                
+
                 System.out.println(message.getSid());
                 if ((result1.isPresent()) && (result1.get() == ButtonType.OK)) {
                     Parent root;
@@ -152,6 +153,10 @@ public class NewCustomerController implements Initializable {
                     Stage stage = new Stage();
                     stage.setTitle("Dash Board");
                     stage.setMaximized(true);
+                    stage.setFullScreen(true);
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    //stage.setResizable(false);
+                    //stage.setFullScreen(false);
                     stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
                     stage.show();
                     //((Node) (event.getSource())).getScene().getWindow().hide();
@@ -174,6 +179,9 @@ public class NewCustomerController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Dash Board");
         stage.setMaximized(true);
+        stage.setMaximized(true);
+        stage.setFullScreen(true);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(new Scene(root, rect_panel.getScene().getWidth(), rect_panel.getScene().getHeight()));
         stage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
