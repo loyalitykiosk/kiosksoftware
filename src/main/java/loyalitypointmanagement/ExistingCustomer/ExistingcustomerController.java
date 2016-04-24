@@ -5,40 +5,32 @@
  */
 package loyalitypointmanagement.ExistingCustomer;
 
-import static com.sun.javaws.ui.SplashScreen.hide;
-import java.io.IOException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import dataprovider.CustomerDetailsGetSet;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import loyalitypointmanagement.Dashboard.FXMLDocumentController;
-import loyalitypointmanagement.lostmycard.LostCardController;
-import dataprovider.CustomerDetailsGetSet;
+import loyalitypointmanagement.Dashboard.LoyalityPointManagement;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
-import javafx.stage.StageStyle;
-import loyalitypointmanagement.Dashboard.LoyalityPointManagement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
