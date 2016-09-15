@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 Jul, 2015, 6:37:43 PM
+    Author     : Goutam
+*/
+
+.backpanel{
+    -fx-background-image:url(bg.jpg);
+    -fx-background-repeat:stretch;
+    -fx-background-position: center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+.panel{
+    
+    -fx-background-image: url(in_bg1.png);
+/*    -fx-background-radius: 10;*/
+    -fx-background-position: center;
+/*    -fx-border-radius: 10;*/
+    -fx-border-width: 5;
+    -fx-border-color:#fea577;
+}
+
+.tab_back{
+    -fx-background-image: url(wh-shdo.png);
+    -fx-background-color: #550144;
+    -fx-background-radius: 12;
+    -fx-background-position: center;
+    -fx-border-width: 5;
+    -fx-border-radius: 10;
+    -fx-border-color:#e35cd1;
+}
+.tab_text_back{
+    -fx-background-color: #3f0033;
+    -fx-background-radius: 0 0 10 10;
+}
+
+.tab_back:hover{
+    -fx-opacity: 0.5;
+}
+
+.label_promotion{
+    -fx-font-weight: bold;
+    /*-fx-background-color: #DF013A;*/
+    -fx-color: #3f0033;
+    -fx-background-radius: 10 10 10 10;
+    -fx-height:90px;
+/*    //-fx-background-radius: 0 0 10 10;
+    
+  -fx-width: 200px;
+  -fx-height: 50px; 
+  -fx-white-space: nowrap;
+  -fx-overflow: hidden;
+  -fx-overflow-x:-webkit-marquee;
+  -fx--webkit-marquee-direction: forwards;
+  -fx--webkit-marquee-style: scroll;
+  -fx--webkit-marquee-speed: normal;
+  -fx--webkit-marquee-increment: small;
+  -fx--webkit-marquee-repetition: 5;
+  -fx-overflow-x: marquee-line;
+  -fx-marquee-direction: forward;
+  -fx-marquee-style: scroll;
+  -fx-marquee-speed: normal;
+  -fx-marquee-play-count: 5;*/
+
+    
+}
+
+
+/*.tab_text_back:hover{
+    -fx-background-color: #550144;
+}*/

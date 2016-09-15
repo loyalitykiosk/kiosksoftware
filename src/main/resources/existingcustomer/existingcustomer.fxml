@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_RIGHT" prefHeight="506.0" prefWidth="900.0" styleClass="backpanel" stylesheets="@existingcustomer.css"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label fx:id="lbl_promotion" alignment="TOP_CENTER"
+               textFill="WHITE" VBox.vgrow="NEVER">
+            <padding>
+                <Insets left="10.0"/>
+            </padding>
+            <VBox.margin>
+                <Insets left="40.0" right="80.0"/>
+            </VBox.margin>
+            <font>
+                <Font size="21.0"/>
+            </font>
+        </Label>
+        <VBox alignment="CENTER_RIGHT" prefHeight="506.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8"
+              xmlns:fx="http://javafx.com/fxml/1" VBox.vgrow="ALWAYS">
+            <children>
+                <VBox fx:id="rect_panel" alignment="CENTER_RIGHT" maxHeight="550.0" maxWidth="750.0" minHeight="450.0"
+                      minWidth="650.0" prefHeight="450.0" prefWidth="650.0" styleClass="panel"
+                      stylesheets="@existingcustomer.css" VBox.vgrow="NEVER">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="80.0" top="10.0"/>
+                    </VBox.margin>
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+                            <children>
+                                <VBox prefHeight="440.0" prefWidth="744.0">
+                                    <children>
+                                        <Pane fx:id="pane_existing_cust" prefHeight="398.0" prefWidth="713.0"
+                                              styleClass="tab_back" stylesheets="@existingcustomer.css">
+                                            <VBox.margin>
+                                                <Insets bottom="20.0" left="30.0" right="30.0" top="20.0"/>
+                                            </VBox.margin>
+                                            <opaqueInsets>
+                                                <Insets/>
+                                            </opaqueInsets>
+                                            <children>
+                                                <VBox prefHeight="392.0" prefWidth="220.0">
+                                                    <children>
+                                                        <Label styleClass="label_existingcust"
+                                                               stylesheets="@existingcustomer.css" text="Name:"
+                                                               textFill="#31cbfd">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label styleClass="label_existingcust"
+                                                               stylesheets="@existingcustomer.css" text="Email:"
+                                                               textFill="#31cbfd">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label styleClass="label_existingcust"
+                                                               stylesheets="@existingcustomer.css" text="Phone:"
+                                                               textFill="#31cbfd">
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label styleClass="label_existingcust"
+                                                               stylesheets="@existingcustomer.css"
+                                                               text="Available Points:" textFill="#31cbfd">
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label styleClass="label_existingcust"
+                                                               stylesheets="@existingcustomer.css" text="Status"
+                                                               textFill="#31cbfd">
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label styleClass="label_existingcust"
+                                                               stylesheets="@existingcustomer.css" text="Membership"
+                                                               textFill="#31cbfd">
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Button fx:id="btn_submit" mnemonicParsing="false"
+                                                                onAction="#ok" prefHeight="50.0" prefWidth="147.0"
+                                                                styleClass="btn_back"
+                                                                stylesheets="@existingcustomer.css" text="OK"
+                                                                textFill="#ffffff">
+                                                            <VBox.margin>
+                                                                <Insets left="40.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Button>
+                                                    </children>
+                                                </VBox>
+                                                <VBox layoutX="212.0" layoutY="1.0" prefHeight="392.0"
+                                                      prefWidth="220.0">
+                                                    <children>
+                                                        <Label fx:id="cust_name" text="1" textFill="#ffffff">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="cust_email" text="2" textFill="#ffffff">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="cust_phone" text="3" textFill="#ffffff">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="cust_point" text="4" textFill="#ffffff">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="cust_status" text="5" textFill="#ffffff">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="cust_type" text="5" textFill="#ffffff">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="15.0"/>
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <HBox>
+                                                            <children>
+                                                                <ImageView fitHeight="165.0" fitWidth="184.0"
+                                                                           pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../images/chips1.png"/>
+                                                                    </image>
+                                                                    <HBox.margin>
+                                                                        <Insets left="275.0"/>
+                                                                    </HBox.margin>
+                                                                </ImageView>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </Pane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

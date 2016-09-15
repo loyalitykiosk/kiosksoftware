@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_RIGHT" prefHeight="506.0" prefWidth="900.0" styleClass="backpanel" stylesheets="@checkin.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<children>
+   <Label fx:id="lbl_promotion" alignment="TOP_CENTER" styleClass="label_promotion" stylesheets="@checkin.css" textFill="WHITE" VBox.vgrow="NEVER">
+      <padding>
+         <Insets left="10.0" />
+      </padding>
+      <VBox.margin>
+         <Insets left="40.0" right="80.0" />
+      </VBox.margin>
+      <font>
+         <Font size="21.0" />
+      </font>
+   </Label>
+<VBox alignment="CENTER_RIGHT" prefHeight="506.0" prefWidth="900.0" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="rect_panel" alignment="CENTER_RIGHT" maxHeight="550.0" maxWidth="750.0" minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="650.0" styleClass="panel" stylesheets="@checkin.css" VBox.vgrow="NEVER">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="80.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+               <children>
+                  <VBox prefHeight="440.0" prefWidth="750.0">
+                     <children>
+                        <Pane fx:id="pane_existing_cust" layoutX="250.0" prefHeight="398.0" prefWidth="650.0" styleClass="tab_back" stylesheets="@checkin.css">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <TextField fx:id="hiddenCardField" visible="false" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="8.0" prefHeight="135.0" prefWidth="667.0" styleClass="tab_text_back" stylesheets="@checkin.css" text="PLEASE SCAN YOUR CARD" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="37.0" />
+                                 </font>
+                              </Label>
+                              <!--<ImageView fitHeight="160.0" fitWidth="200.0" layoutX="36.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">-->
+                                 <!--<image>-->
+                                    <!--<Image url="@../images/chips.png" />-->
+                                 <!--</image>-->
+                              <!--</ImageView>-->
+                              <ImageView fitHeight="181.0" fitWidth="378.0" layoutX="288.0" layoutY="171.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/swipe.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                              <Button layoutX="36.0" layoutY="290.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="147.0" styleClass="btn_back" stylesheets="@checkin.css" text="Back" textFill="#ffffff">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
+</children>
+</VBox>

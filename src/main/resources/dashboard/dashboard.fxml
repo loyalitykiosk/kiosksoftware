@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_RIGHT" prefHeight="506.0" prefWidth="900.0" styleClass="backpanel" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="lbl_promotion" fill="#e35cd1" fontSmoothingType="LCD" styleClass="label_promotion" VBox.vgrow="NEVER">
+         <font>
+            <Font name="Verdana Bold" size="24.0" />
+         </font>
+      </Text>
+      <VBox alignment="CENTER" prefHeight="506.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox fx:id="rect_panel" alignment="CENTER_RIGHT" maxHeight="550.0" maxWidth="380.0" minHeight="450.0" minWidth="380.0" prefHeight="450.0" prefWidth="380.0" styleClass="panel" stylesheets="@dashboard.css" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="80.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="SOMETIMES">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="370.0">
+                           <children>
+                              <Pane fx:id="pane_existing_cust" onMouseClicked="#existCustomer" prefHeight="200.0" prefWidth="200.0" styleClass="tab_back" stylesheets="@dashboard.css">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="110.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icon1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="118.0" prefHeight="57.0" prefWidth="300.0" styleClass="tab_text_back" stylesheets="@dashboard.css" text="Check Points" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Pane>
+                              <Pane fx:id="pane_check" onMouseClicked="#checkInOut" prefHeight="200.0" prefWidth="200.0" styleClass="tab_back" stylesheets="@dashboard.css">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="102.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icon3.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="118.0" prefHeight="57.0" prefWidth="300.0" styleClass="tab_text_back" stylesheets="@dashboard.css" text="Check In" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                        <!--VBox prefHeight="200.0" prefWidth="370.0" visible="false">
+                           <children>
+                              <Pane fx:id="pane_new_cust" opacity="0.1" prefHeight="200.0" prefWidth="200.0" styleClass="tab_back" stylesheets="@dashboard.css">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="105.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icon2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="123.0" prefHeight="57.0" prefWidth="300.0" styleClass="tab_text_back" stylesheets="@dashboard.css" text="New Customer" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="pane_lost_card" opacity="0.1" prefHeight="200.0" prefWidth="200.0" styleClass="tab_back" stylesheets="@dashboard.css">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="110.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icon4.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="117.0" prefHeight="57.0" prefWidth="300.0" styleClass="tab_text_back" stylesheets="@dashboard.css" text="Lost My Card" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox-->
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
